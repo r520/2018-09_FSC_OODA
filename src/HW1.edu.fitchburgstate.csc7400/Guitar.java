@@ -2,24 +2,26 @@
  * Class: Object-Oriented Design and Analysis
  * Professor: Orlando Montalvo
  * Assignment: HW 1
- * 
- * Date: 2018-09-03
+ * Date: 2018-09-14
+ * Student: Radhika Kasu
  */
 
-package HW1;
+package HW1.edu.fitchburgstate.csc7400;
 
 /**
  * Guitar contains the information needed to keep track of a type of guitar from
  * Rick's music store
- * 
- * @author HeadFirstOODA
+ *
+ * @author:OMontalv
+ *
+ * Version:1.0
  *
  */
 public class Guitar {
 
 	/**
-	 * Full constructor
-	 * 
+	 * Guitar constructor
+	 *
 	 * @param serialNumber manufacturer serial number
 	 * @param price store price
 	 * @param manufacturer the guitar's manufacturer
@@ -28,10 +30,12 @@ public class Guitar {
 	 * @param backWood the wood used for the guitar body
 	 * @param topWood the wood used for the guitar's face
 	 */
-	public Guitar(String serialNumber, double price, 
-			String manufacturer, String model, 
-			String type, String backWood,
-			String topWood) {
+
+
+	public Guitar(String serialNumber, double price,
+				  String manufacturer, String model,
+				  String type, String backWood,
+				  String topWood) {
 		this.serialNumber = serialNumber;
 		this.price = price;
 		this.manufacturer = manufacturer;
@@ -43,7 +47,7 @@ public class Guitar {
 
 	/**
 	 * Returns the manufacturer serial number
-	 * 
+	 *
 	 * NB: Gets and sets do not need @params or @returns because they do one thing which
 	 * is already in the comment
 	 */

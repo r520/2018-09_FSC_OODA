@@ -1,16 +1,16 @@
-package HW1.test;
+package HW1.test.edu.fitchburgstate.csc7400;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+import HW1.edu.fitchburgstate.csc7400.Guitar;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import HW1.Guitar;
-
 class GuitarTest {
-	
+
 	Guitar testGuitar;
 
+
+	//adding a test guitar to  the inventory
 	@BeforeEach
 	void setUp() throws Exception {
 		this.testGuitar = new Guitar(
@@ -21,10 +21,11 @@ class GuitarTest {
 				"electric", // Type of Guitar
 				"Maple", // Back wood
 				"Adirondack" // Face wood
-				);
+		);
 	}
 
 	@Test
+		// Test to get the serial number
 	void testGetSerialNumber() {
 		String expected = "AB123";
 		String returned = this.testGuitar.getSerialNumber();
@@ -32,6 +33,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to get the price
 	void testGetPrice() {
 		double expected = 203.35;
 		double returned = this.testGuitar.getPrice();
@@ -39,6 +41,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to set the price
 	void testSetPrice() {
 		double expected = 225.10;
 		this.testGuitar.setPrice(expected);
@@ -47,6 +50,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to get the Manufacturer
 	void testGetManufacturer() {
 		String expected = "Gibson";
 		String returned = this.testGuitar.getManufacturer();
@@ -54,6 +58,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to get the Model
 	void testGetModel() {
 		String expected = "EasyLearn";
 		String returned = this.testGuitar.getModel();
@@ -61,6 +66,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to get the Type
 	void testGetType() {
 		String expected = "electric";
 		String returned = this.testGuitar.getType();
@@ -68,6 +74,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to get the BackWood
 	void testGetBackWood() {
 		String expected = "Maple";
 		String returned = this.testGuitar.getBackWood();
@@ -75,6 +82,7 @@ class GuitarTest {
 	}
 
 	@Test
+		// Test to get the TopWood
 	void testGetTopWood() {
 		String expected = "Adirondack";
 		String returned = this.testGuitar.getTopWood();
