@@ -1,47 +1,41 @@
+/**
+ * Class: OOAD-CSC7400
+ * Professor: Orlando Montalvo
+ * Assignment: HW1
+ * Student: Radhika Kasu
+ * @author:OMontalv
+ * Version:1.0
+ */
+
 package HW1.edu.fitchburgstate.csc7400;
 import java.util.Iterator;
 import java.util.List;
 
+
 /**
  * FindGuitarTester class searches the inventory with required guitar specifications and prints the matching guitar
- *
- * Contains methods to call Inventory and Guitar Class methods
- *
- * @author:OMontalv
- *
- * Version:1.0
- *
  */
 
 public class FindGuitarTester {
 
   /**
    * The application's entry point.
-   *
    * @param args supplies command-line arguments as an array of String objects
-   *
-   *
    */
+
   public static void main(String[] args) {
 
-    // Set up Rick's guitar inventory by creating object for Inventory
+    // Set up Rick's guitar inventory
 
     Inventory inventory = new Inventory();
-
-    // Passing inventory reference to InitializeInventory method
-
     initializeInventory(inventory);
-
-    // Creating Object for Guitar by calling its constructor
 
     Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor",
             "electric", "Alder", "Alder");
 
-    // Calling search method of Inventory class by passing search pattern to find match
+    // Calling Inventory class search method
 
     List<Guitar> guitarList = inventory.search(whatErinLikes);
-
-    //If match found display the details to Erin
 
     if (guitarList != null) {
       System.out.println("Erin, you might like this " );
@@ -58,13 +52,15 @@ public class FindGuitarTester {
 
     else {
 
-      // If no match found display the below message
-
       System.out.println("Sorry, Erin, we have nothing for you.");
     }
   }
 
-  // Calling addGuitar method to initialize multiple Guitar objects
+    /**
+     * Initialize Inventory with Guitars.
+     *
+     * @param inventory object of inventory class
+     */
 
   private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",

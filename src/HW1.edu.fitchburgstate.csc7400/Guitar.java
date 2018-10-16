@@ -1,9 +1,10 @@
 /**
- * Class: Object-Oriented Design and Analysis
+ * Class: OOAD-CSC7400
  * Professor: Orlando Montalvo
- * Assignment: HW 1
- * Date: 2018-09-14
+ * Assignment: HW1
  * Student: Radhika Kasu
+ * @author:OMontalv
+ * Version:1.0
  */
 
 package HW1.edu.fitchburgstate.csc7400;
@@ -11,10 +12,7 @@ package HW1.edu.fitchburgstate.csc7400;
 /**
  * Guitar contains the information needed to keep track of a type of guitar from
  * Rick's music store
- *
- * @author:OMontalv
- *
- * Version:1.0
+ * Initialize Getter and setters for guitar specifications
  *
  */
 public class Guitar {

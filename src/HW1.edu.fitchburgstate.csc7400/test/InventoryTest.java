@@ -1,3 +1,12 @@
+/**
+ * Class: OOAD-CSC7400
+ * Professor: Orlando Montalvo
+ * Assignment: HW1
+ * Student: Radhika Kasu
+ * @author:OMontalv
+ * Version:1.0
+ */
+
 package HW1.test.edu.fitchburgstate.csc7400;
 
 import static org.junit.jupiter.api.Assertions.*;
