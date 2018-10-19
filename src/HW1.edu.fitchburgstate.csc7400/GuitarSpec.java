@@ -1,10 +1,10 @@
 /**
- * Class: Object-Oriented Design and Analysis
+ * Class: OOAD-CSC7400
  * Professor: Orlando Montalvo
- * Assignment: HW 1
- * Student:Radhikas Kasu
- *
- * Date: 2018-09-14
+ * Assignment: HW1
+ * Student: Radhika Kasu
+ * @author:OMontalv
+ * Version:1.0
  */
 
 package HW1.edu.fitchburgstate.csc7400;
@@ -12,8 +12,6 @@ package HW1.edu.fitchburgstate.csc7400;
 /**
  * Guitar contains the information needed to keep track of a type of guitar from
  * Rick's music store
- *
- * @author HeadFirstOODA
  *
  */
 public class GuitarSpec {
@@ -59,8 +57,7 @@ public class GuitarSpec {
     public GuitarSpec(
             Manufacturer manufacturer, String model,
             Type type, TopWoodandBackwood backwood, TopWoodandBackwood topwood) {
-        //this.serialNumber = serialNumber;
-        //this.price = price;
+
         this.manufacturer = manufacturer;
         this.model = model;
         this.type = type;
@@ -127,17 +124,23 @@ public class GuitarSpec {
         return topwood;
     }
 
-    //Creating match method
+    /**
+     * This method matches the user guitar specifications to the guitar specifications available in the Inventory
+     * User specifications will be matched against constants in the enum
+     * @param guitarSpec object of GuitarSpec class
+     * @param guitar object of guitar class
+     */
 
     public boolean match(GuitarSpec guitarSpec ,Guitar guitar) {
+
         if (((guitarSpec.getManufacturer()== null) ||
                 (guitar.guitarSpec.getManufacturer()).equals(guitarSpec.getManufacturer())) &&
                 ((guitarSpec.getType()== null) ||
-                        (guitar.guitarSpec.getType().toString()).equalsIgnoreCase(guitarSpec.getType().toString())) &&
+                        (guitar.guitarSpec.getType()).equals(guitarSpec.getType())) &&
                 ((guitarSpec.getBackWood()== null) ||
-                        (guitar.guitarSpec.getBackWood().toString()).equalsIgnoreCase(guitarSpec.getBackWood().toString())) &&
+                        (guitar.guitarSpec.getBackWood()).equals(guitarSpec.getBackWood())) &&
                 ((guitarSpec.getTopWood()== null) ||
-                        (guitar.guitarSpec.getTopWood().toString()).equalsIgnoreCase(guitarSpec.getTopWood().toString()))){
+                        (guitar.guitarSpec.getTopWood()).equals(guitarSpec.getTopWood()))){
 
             return true;}
         else{

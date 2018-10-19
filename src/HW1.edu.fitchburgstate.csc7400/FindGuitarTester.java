@@ -1,12 +1,11 @@
-
 /**
- * Class: Object-Oriented Design and Analysis
+ * Class: OOAD-CSC7400
  * Professor: Orlando Montalvo
- * Assignment: HW 2
- * @Version 1.0
+ * Assignment: HW1
  * Student: Radhika Kasu
- * Date: 09/14/2018
- * Collabarated with Tejaswini
+ * @author:OMontalv
+ * Version:1.0
+ * Collaborators: Tejaswini
  */
 
 package HW1.edu.fitchburgstate.csc7400;
@@ -22,27 +21,23 @@ import HW1.edu.fitchburgstate.csc7400.GuitarSpec.Type;
 /**
  * FindGuitarTester class searches the inventory with required guitar specifications and prints the matching guitar
  */
-//Contains methods to call Inventory and Guitar Class methods
-public class FindGuitarTester {
-  //private static List<Guitar> guitarsResult = new LinkedList<Guitar>();
 
+public class FindGuitarTester {
+
+  /**
+   * The application's entry point.
+   * @param args supplies command-line arguments as an array of String objects
+   */
   public static void main(String[] args) {
     // Set up Rick's guitar inventory
 
-    // Creating object for  Inventory
     Inventory inventory = new Inventory();
 
-    // Passing inventory reference to InitializeInventory method
     initializeInventory(inventory);
-
-    // Creating Object for Guitar by calling its constructor
-
-    // Changing "fender" to "Fender" as case sensitivity is not handled
-    //Can use  equalsIgnoreCase instead in Inventory class
 
     GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, TopWoodandBackwood.Alder, TopWoodandBackwood.Alder);
 
-    // Calling search method of Inventory class by passing search pattern
+    // Calling Inventory class search method
 
     List<Guitar> guitarsResult = inventory.search(whatErinLikes);
     //if matches display the details to Erin
@@ -68,7 +63,11 @@ public class FindGuitarTester {
 
   }
 
-  // calling addGuitar method to initialize Guitar objects
+  /**
+   * Initialize Inventory with Guitars.
+   *
+   * @param inventory object of inventory class
+   */
   private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, new GuitarSpec(Manufacturer.Collings, "CJ", Type.Acoustic,
             TopWoodandBackwood.IndianRosewood, TopWoodandBackwood.Sitka));

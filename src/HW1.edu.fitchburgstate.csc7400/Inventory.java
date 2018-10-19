@@ -1,10 +1,10 @@
 /**
- * Class: Object-Oriented Design and Analysis
+ * Class: OOAD-CSC7400
  * Professor: Orlando Montalvo
- * Assignment: HW 1
- * @Version 1.0
+ * Assignment: HW1
  * Student: Radhika Kasu
- * Date: 09/14/2018
+ * @author:OMontalv
+ * Version:1.0
  */
 package HW1.edu.fitchburgstate.csc7400;
 
@@ -13,8 +13,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Class Inventory - For adding, searching and retrieving  from collection of Guitars.
- * This class helps  the customer to find the Guitar of their choice.
+ * Class Inventory - contains methods for adding, searching and retrieving guitar
+ * This class helps the customer to find the Guitar of their Specification.
+ *
  */
 
 public class Inventory {
@@ -39,37 +40,17 @@ public class Inventory {
     return null;
   }
 
-  // Performing search in the existing Guitar objects in the linked list guitars
+  /**
+   * Search guitar in inventory with guitar description provided by customer
+   * @param searchGuitar Guitar object
+   * @return guitar with the specification mentioned else returns null
+   */
+
   public List<Guitar> search(GuitarSpec searchGuitar) {
 
-     /* for (Iterator i = guitars.iterator(); i.hasNext(); ) {
-      Guitar guitar = (Guitar)i.next();
-      // Ignore serial number since that's unique
-      // Ignore price since that's unique
-      String builder = searchGuitar.getManufacturer();
-      if ((builder != null) && (!builder.equals("")) &&
-          (!builder.equals(guitar.getManufacturer())))
-        continue;
-      String model = searchGuitar.getModel();
-      if ((model != null) && (!model.equals("")) &&
-          (!model.equals(guitar.getModel())))
-        continue;
-      String type = searchGuitar.getType();
-      if ((type != null) && (!searchGuitar.equals("")) &&
-          (!type.equals(guitar.getType())))
-        continue;
-      String backWood = searchGuitar.getBackWood();
-      if ((backWood != null) && (!backWood.equals("")) &&
-          (!backWood.equals(guitar.getBackWood())))
-        continue;
-      String topWood = searchGuitar.getTopWood();
-      if ((topWood != null) && (!topWood.equals("")) &&
-          (!topWood.equals(guitar.getTopWood())))
-        continue;
-      return guitar;*/
 
     GuitarSpec guitarSpec = new GuitarSpec();
-    // Matching user specifications getters with inventory search getters
+    // Matching user specification getters with inventory search getters
     for (Iterator i = guitars.iterator(); i.hasNext();) {
       Guitar guitar = (Guitar) i.next();
       // This condition checks the guitars spec

@@ -1,6 +1,8 @@
 package HW1test.edu.fitchburgstate.csc7400;
 
 import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.Assert.*;
+import org.junit.*;
 import HW1.edu.fitchburgstate.csc7400.Guitar;
 import HW1.edu.fitchburgstate.csc7400.GuitarSpec.TopWoodandBackwood;
 import HW1.edu.fitchburgstate.csc7400.GuitarSpec.Type;

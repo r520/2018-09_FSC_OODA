@@ -4,63 +4,82 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 import HW1.edu.fitchburgstate.csc7400.GuitarSpec;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import HW1.edu.fitchburgstate.csc7400.Guitar;
 import HW1.edu.fitchburgstate.csc7400.GuitarSpec;
 import HW1.edu.fitchburgstate.csc7400.Inventory;
 import HW1.edu.fitchburgstate.csc7400.FindGuitarTester;
 
-class InventoryTest {
+import java.util.List;
+
+public class InventoryTest {
 
     Inventory inventory = new Inventory();
+    GuitarSpec guitarspec1;
+    GuitarSpec guitarspec2;
+    GuitarSpec guitarspec3;
 
-    @Test
-    void Guitartest() {
-        //Test to see if the serial number is returned correctly.
 
-        GuitarSpec guitarspec1 = new GuitarSpec(GuitarSpec.Manufacturer.Collings,"CJ",GuitarSpec.Type.Electric,
-                GuitarSpec.TopWoodandBackwood.IndianRosewood,GuitarSpec.TopWoodandBackwood.Sitka);
+    @BeforeEach
+    public void setup(){
 
-        inventory.addGuitar("1127", 4999.95, guitarspec1);
-        Guitar value = inventory.getGuitar("1127"); // Searching the guitar with the serial number.
-        assertEquals("1127", value.getSerialNumber());//Test to see if returned serial number matches the expected one
-        assertNotNull(value);
-        assertEquals(4999.95, value.getPrice());
-        assertEquals("Collings",value.guitarSpec.getManufacturer());
+        GuitarSpec guitarspec1 = new GuitarSpec(GuitarSpec.Manufacturer.Collings, "CJ", GuitarSpec.Type.Electric,
+                GuitarSpec.TopWoodandBackwood.Mahogany, GuitarSpec.TopWoodandBackwood.Maple);
 
-/*
-		//Test to see that addGuitar adds data to inventory
-		Inventory inventory1 = new Inventory();
-		inventory1.addGuitar("1127", 4999.95, GuitarSpec.Manufacturer.Collings, "CJ", GuitarSpec.Type.Electric,
+        GuitarSpec guitarspec2 = new GuitarSpec(GuitarSpec.Manufacturer.Fender, "CJ", GuitarSpec.Type.Acoustic,
+                GuitarSpec.TopWoodandBackwood.IndianRosewood, GuitarSpec.TopWoodandBackwood.Maple);
+
+        GuitarSpec guitarspec3 = new GuitarSpec(GuitarSpec.Manufacturer.Fender, "CJ", GuitarSpec.Type.Acoustic,
                 GuitarSpec.TopWoodandBackwood.IndianRosewood, GuitarSpec.TopWoodandBackwood.Sitka);
-		Guitar value1 = inventory1.getGuitar("1127");
-		assertNotNull(value1);
-
-       //Test to see if two objects of same data can be added
-        Inventory inventory2 = new Inventory();
-        inventory2.addGuitar("1127", 4999.95,GuitarSpec.Manufacturer.Collings, "CJ", GuitarSpec.Type.Electric,
-                GuitarSpec.TopWoodandBackwood.IndianRosewood, GuitarSpec.TopWoodandBackwood.Sitka);
-        Guitar value2 = inventory2.getGuitar("1127");
-        assertEquals(value1.getSerialNumber(),value2.getSerialNumber());
 
 
-     //Test to see that Price, Backwood is not Null
-        Inventory inventory3 = new Inventory();
-        inventory3.addGuitar("1127", 4999.95, GuitarSpec.Manufacturer.Collings, "CJ", GuitarSpec.Type.Electric,
-                GuitarSpec.TopWoodandBackwood.IndianRosewood, GuitarSpec.TopWoodandBackwood.Sitka);
-        Guitar value3 = inventory3.getGuitar("1127");
-        assertNotNull(value3.getPrice());
-        assertNotNull(value3.guitarSpec.getBackWood());
-
-
-        //Test to see that search returns correct values
-        //Guitar value3 = inventory3.search("");
-        assertNotNull(value3.getPrice());
-        assertNotNull(value3.getBackWood()); */
-
+        inventory.addGuitar("1129",2999.5,guitarspec1);
+        inventory.addGuitar("1130",3999.5,guitarspec2);
+        inventory.addGuitar("1131",2555.5,guitarspec3);
 
     }
 
+    /**
+     * Tests whether addGuitar added the object to the inventory
+     */
+    @Test
+    void testaddGuitarfunction() {
+        Guitar value = inventory.getGuitar("1129");
+        assertNotNull(value);
+    }
+
+    /**
+     * Test to see that search guitar returns all the guitars with topwood Maple
+     */
+    @Test
+    void testSearchGuitarbytopwood() {
+
+        GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, null, GuitarSpec.TopWoodandBackwood.Maple);
+        List<Guitar> guitarsResultMahogany = inventory.search(whatErinLikes);
+        assertEquals(1, guitarsResultMahogany.size());
+    }
+    /**
+     * Test to see that search guitar returns all the guitars with specified Manufacturer and topwood
+     */
+    @Test
+    void testSearchGuitarbyManufacturertopwood(){
+
+        GuitarSpec whatErinLikes = new GuitarSpec(GuitarSpec.Manufacturer.Fender, "", null, null, GuitarSpec.TopWoodandBackwood.Maple);
+        List<Guitar> guitarsResultMahogany1 = inventory.search(whatErinLikes);
+        assertEquals(1, guitarsResultMahogany1.size());
+    }
+
+    @Test
+    /**
+     * Test to see that search guitar returns all the guitars with backwood IndianRosewood
+     */
+    void testSearchGuitarbybackwood() {
+
+        GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, GuitarSpec.TopWoodandBackwood.IndianRosewood, null);
+        List<Guitar> guitarsResultMahogany = inventory.search(whatErinLikes);
+        assertEquals(2, guitarsResultMahogany.size());
+    }
 
 }
 

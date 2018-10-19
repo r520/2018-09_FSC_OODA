@@ -1,24 +1,20 @@
 /**
- * Class: Object-Oriented Design and Analysis
+ * Class: OOAD-CSC7400
  * Professor: Orlando Montalvo
- * Assignment: HW 1
- * Student:Radhikas Kasu
- *
- * Date: 2018-09-14
+ * Assignment: HW1
+ * Student: Radhika Kasu
+ * @author:OMontalv
+ * Version:1.0
  */
 
 package HW1.edu.fitchburgstate.csc7400;
-
 /**
- * Guitar contains the Unique Properties- Serial Number, Price and GuitarSpec
+ * Guitar contains the information needed to keep track of a type of guitar from
  * Rick's music store
- *
+ * Initialize Getter and setters for guitar specifications
  *
  */
 public class Guitar {
-
-
-	// Guitar Properties
 
 	public String serialNumber;
 	public double price;
@@ -26,10 +22,10 @@ public class Guitar {
 
 	/**
 	 * Guitar constructor with below arguments
-	 *
 	 * @param serialNumber manufacturer serial number
 	 * @param price store price
-	 * @param guitar Specification
+	 * @param guitarSpec Specifications
+	 *
 	 */
 	public Guitar(String serialNumber, double price,GuitarSpec guitarSpec) {
 
@@ -63,14 +59,8 @@ public class Guitar {
 	}
 
 	/**
-	 * The guitars manufacturer serial number
+	 * Returns Erin's specifications for the guitar
 	 */
-	//private String serialNumber;
-
-	/**
-	 * Rick's price for the guitar
-	 */
-	//private double price;
 
 	public GuitarSpec getguitarSpec() {
 		return guitarSpec;
