@@ -56,8 +56,8 @@ public class InventoryTest {
     void testSearchGuitarbytopwood() {
 
         GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, null, GuitarSpec.TopWoodandBackwood.Maple);
-        List<Guitar> guitarsResultMahogany = inventory.search(whatErinLikes);
-        assertEquals(1, guitarsResultMahogany.size());
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(1, guitarsResult.size());
     }
     /**
      * Test to see that search guitar returns all the guitars with specified Manufacturer and topwood
@@ -66,8 +66,8 @@ public class InventoryTest {
     void testSearchGuitarbyManufacturertopwood(){
 
         GuitarSpec whatErinLikes = new GuitarSpec(GuitarSpec.Manufacturer.Fender, "", null, null, GuitarSpec.TopWoodandBackwood.Maple);
-        List<Guitar> guitarsResultMahogany1 = inventory.search(whatErinLikes);
-        assertEquals(1, guitarsResultMahogany1.size());
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(1, guitarsResult.size());
     }
 
     @Test
@@ -77,9 +77,87 @@ public class InventoryTest {
     void testSearchGuitarbybackwood() {
 
         GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, GuitarSpec.TopWoodandBackwood.IndianRosewood, null);
-        List<Guitar> guitarsResultMahogany = inventory.search(whatErinLikes);
-        assertEquals(2, guitarsResultMahogany.size());
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(2, guitarsResult.size());
     }
+
+    @Test
+    /**
+     * Test to see when no match is found
+     */
+    void testSearchGuitarNoMatch() {
+
+        GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, GuitarSpec.TopWoodandBackwood.Maple, null);
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(0, guitarsResult.size());
+    }
+
+    @Test
+    /**
+     * Test to see when no match is found 2
+     */
+    void testSearchGuitarNoMatch1() {
+
+        GuitarSpec whatErinLikes = new GuitarSpec(GuitarSpec.Manufacturer.Martin, "", null, GuitarSpec.TopWoodandBackwood.Maple, null);
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(0, guitarsResult.size());
+    }
+
+    @Test
+    /**
+     * Test to see when no match is found with single specification
+     */
+    void testNoMatchSingleSpec() {
+
+        GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, GuitarSpec.TopWoodandBackwood.Maple, null);
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(0, guitarsResult.size());
+    }
+
+    @Test
+    /**
+     * Test to see when no match is found with multiple specification
+     */
+    void testNoMatchMultipleSpec() {
+
+        GuitarSpec whatErinLikes = new GuitarSpec(null, "", null, GuitarSpec.TopWoodandBackwood.Sitka, GuitarSpec.TopWoodandBackwood.IndianRosewood);
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        assertEquals(0, guitarsResult.size());
+    }
+
+    @Test
+    /**
+     * Test to see whether the expected guitars are returned back or not
+     */
+    void testIsMatch(){
+        GuitarSpec whatErinLikes = new GuitarSpec(GuitarSpec.Manufacturer.Fender, "", null, GuitarSpec.TopWoodandBackwood.IndianRosewood, null);
+        List<Guitar> guitarsResult = inventory.search(whatErinLikes);
+        Boolean isMatch = false;
+        for (Iterator i = guitarsResult.iterator(); i.hasNext(); ) {
+            Guitar guitar = (Guitar)i.next();
+            if (((whatErinLikes.getManufacturer()== null) ||
+                    (guitar.guitarSpec.getManufacturer())==(whatErinLikes.getManufacturer())) &&
+                    ((whatErinLikes.getType()== null) ||
+                            (guitar.guitarSpec.getType())==(whatErinLikes.getType())) &&
+                    ((whatErinLikes.getBackWood()== null) ||
+                            (guitar.guitarSpec.getBackWood())==(whatErinLikes.getBackWood())) &&
+                    ((whatErinLikes.getTopWood()== null) ||
+                            (guitar.guitarSpec.getTopWood())==(whatErinLikes.getTopWood()))){
+
+                isMatch = true;
+
+            }
+
+        }
+
+        assertEquals(2, guitarsResult.size());
+
+        assertEquals(true, isMatch);
+    }
+
+}
+
+
 
 }
 

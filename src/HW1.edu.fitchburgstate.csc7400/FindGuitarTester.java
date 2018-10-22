@@ -64,9 +64,9 @@ public class FindGuitarTester {
   }
 
   /**
-   * Initialize Inventory with Guitars.
+   * Creating and adding guitar objects to list by calling addGuitar method of Inventory class
    *
-   * @param inventory object of inventory class
+   * @param inventory - object of inventory class
    */
   private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, new GuitarSpec(Manufacturer.Collings, "CJ", Type.Acoustic,

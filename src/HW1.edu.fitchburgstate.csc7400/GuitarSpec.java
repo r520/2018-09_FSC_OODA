@@ -134,13 +134,13 @@ public class GuitarSpec {
     public boolean match(GuitarSpec guitarSpec ,Guitar guitar) {
 
         if (((guitarSpec.getManufacturer()== null) ||
-                (guitar.guitarSpec.getManufacturer()).equals(guitarSpec.getManufacturer())) &&
+                (guitar.guitarSpec.getManufacturer())==(guitarSpec.getManufacturer())) &&
                 ((guitarSpec.getType()== null) ||
-                        (guitar.guitarSpec.getType()).equals(guitarSpec.getType())) &&
+                        (guitar.guitarSpec.getType())==(guitarSpec.getType())) &&
                 ((guitarSpec.getBackWood()== null) ||
-                        (guitar.guitarSpec.getBackWood()).equals(guitarSpec.getBackWood())) &&
+                        (guitar.guitarSpec.getBackWood())==(guitarSpec.getBackWood())) &&
                 ((guitarSpec.getTopWood()== null) ||
-                        (guitar.guitarSpec.getTopWood()).equals(guitarSpec.getTopWood()))){
+                        (guitar.guitarSpec.getTopWood())==(guitarSpec.getTopWood()))){
 
             return true;}
         else{
